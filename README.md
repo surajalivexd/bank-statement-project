@@ -1,7 +1,2 @@
-# bank-statement-project
-What it does : 
-User uploads their bank statement (CSV)
-Auto-categorizes transactions (food, rent, travel, etc.)
-Detects anomalies (unusual spending spikes)
-Predicts next month's spend per category
-Shows an interactive dashboard with charts
+Mini Bank Statement Analyzer 🏦📊
+A lightweight Personal Finance Tracker built using the Python data science ecosystem. This project demonstrates how to ingest a messy bank statement CSV, clean and structure the data using **Pandas** and **NumPy**, store and query it using an **SQL (SQLite)** database, and visualize financial habits with **Matplotlib** and **Seaborn**.
