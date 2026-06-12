@@ -44,7 +44,15 @@ from users
 where abs(amount) > 1500
 order by abs(amount) > 1500
 """
-ans = pd.read_sql_query(query2,conn)
+#savings
+savings = """
+select
+SUM(CASE WHEN type = 'Income' THEN ABS(amount) ELSE 0 END) -
+SUM(CASE WHEN type = 'Expense' THEN ABS(amount) ELSE 0 END) AS Net_Savings
+from users
+"""
+
+ans = pd.read_sql_query(savings,conn)
 print(ans)
 
 conn.close()
