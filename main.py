@@ -16,15 +16,9 @@ df["Amount"]=df["Amount"].fillna(fallback_amounts)
 df["Amount"]=df["Amount"].fillna(100)
 df["Type"] =  np.where(df["Amount"]>0, "Income" , "Expense")
 
-
-
-
 #cleaned dataframe
 
 #filtring 
-
-
-
 
 conn = sq.connect("project1.db")
 df.to_sql("users",conn,if_exists="replace",index=False)
@@ -35,7 +29,6 @@ from users
 where Type = "Expense"
 group by Category
 order by Total_Spent desc
-
 """
 #High-Value Transactions (Greater than ₹1,500):
 query2="""
@@ -51,8 +44,32 @@ SUM(CASE WHEN type = 'Income' THEN ABS(amount) ELSE 0 END) -
 SUM(CASE WHEN type = 'Expense' THEN ABS(amount) ELSE 0 END) AS Net_Savings
 from users
 """
+# recurring expense
+query3="""
+select Description,Category , count(*) as occurance,
+sum(abs(amount)) as total_spent
+from users
+where Type = "Expense"
+group by Category
+having count(*) > 1
+order by occurance desc
 
-ans = pd.read_sql_query(savings,conn)
+"""
+# Highest cash drain day
+query4 =  """
+select Date , Description , Amount 
+from users
+where Type = "Expense"
+order by abs(Amount) desc
+limit 5
+
+"""
+
+
+
+
+
+ans = pd.read_sql_query(query4,conn)
 print(ans)
 
 conn.close()
