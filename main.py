@@ -1,6 +1,11 @@
 import pandas as pd
 import numpy as np
 import sqlite3 as sq
+import matplotlib as plt
+import matplotlib.pyplot as plt
+import seaborn as sns
+import cufflinks as cf 
+from plotly.offline import iplot
 df = pd.read_csv(r"C:\Users\suraj\Documents\suraj doc\bank_statement.csv")
 df["Amount"]=df["Amount"].astype(str).replace('"',"").replace (",",'').str.strip()
 df["Amount"]=pd.to_numeric(df["Amount"],errors='coerce')
@@ -30,22 +35,22 @@ where Type = "Expense"
 group by Category
 order by Total_Spent desc
 """
-#High-Value Transactions (Greater than ₹1,500):
+# High-Value Transactions (Greater than ₹1,500):
 query2="""
 select *
 from users 
 where abs(amount) > 1500
 order by abs(amount) > 1500
 """
-#savings
-savings = """
+# savings
+query3 = """
 select
 SUM(CASE WHEN type = 'Income' THEN ABS(amount) ELSE 0 END) -
 SUM(CASE WHEN type = 'Expense' THEN ABS(amount) ELSE 0 END) AS Net_Savings
 from users
 """
 # recurring expense
-query3="""
+query4="""
 select Description,Category , count(*) as occurance,
 sum(abs(amount)) as total_spent
 from users
@@ -55,23 +60,18 @@ having count(*) > 1
 order by occurance desc
 
 """
-# Highest cash drain day
-query4 =  """
+# Highest cash drain days
+query5 =  """
 select Date , Description , Amount 
 from users
 where Type = "Expense"
 order by abs(Amount) desc
 limit 5
-
 """
-
-
-
-
 
 ans = pd.read_sql_query(query4,conn)
 print(ans)
 
 conn.close()
 
-
+#Visualising 
