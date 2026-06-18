@@ -9,4 +9,4 @@ and generates a visual dashboard.
 - Net savings per month
 - Recurring expense detection
 - High-value transaction alerts
-![Dashboard](financial_dashboard.png)
+
