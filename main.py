@@ -128,4 +128,6 @@ axes[2, 0].set_xlabel('')
 fig.delaxes(axes[2, 1])
 
 fig.subplots_adjust(top=0.88, bottom=0.08, left=0.12, right=0.95, hspace=0.45, wspace=0.35)
+
+plt.savefig('financial_dashboard.png', dpi=300, bbox_inches='tight')
 plt.show()
