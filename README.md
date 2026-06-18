@@ -1,5 +1,11 @@
-Mini Bank Statement Analyzer 🏦📊
+# Bank Statement Analysis Project
+A Python project that cleans raw bank data, runs SQL analytics, 
+and generates a visual dashboard.
 
+## Tech Stack: Pandas, NumPy, SQLite, Seaborn, Matplotlib
 
-
-A lightweight Personal Finance Tracker built using the Python data science ecosystem. This project demonstrates how to ingest a messy bank statement CSV, clean and structure the data using **Pandas** and **NumPy**, store and query it using an **SQL (SQLite)** database, and visualize financial habits with **Matplotlib** and **Seaborn**.
+## Features:
+- Budget leakage per category
+- Net savings per month
+- Recurring expense detection
+- High-value transaction alerts
