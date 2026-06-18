@@ -4,8 +4,7 @@ import sqlite3 as sq
 import matplotlib as plt
 import matplotlib.pyplot as plt
 import seaborn as sns
-import cufflinks as cf 
-from plotly.offline import iplot
+
 df = pd.read_csv(r"C:\Users\suraj\Documents\suraj doc\bank_statement.csv")
 df["Amount"]=df["Amount"].astype(str).replace('"',"").replace (",",'').str.strip()
 df["Amount"]=pd.to_numeric(df["Amount"],errors='coerce')
@@ -130,4 +129,4 @@ fig.delaxes(axes[2, 1])
 fig.subplots_adjust(top=0.88, bottom=0.08, left=0.12, right=0.95, hspace=0.45, wspace=0.35)
 
 plt.savefig('financial_dashboard.png', dpi=300, bbox_inches='tight')
-plt.show()
+
