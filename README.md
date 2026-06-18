@@ -10,3 +10,5 @@ and generates a visual dashboard.
 - Recurring expense detection
 - High-value transaction alerts
 
+## Dashboard :
+<img width="4689" height="4317" alt="image" src="https://github.com/user-attachments/assets/645b5e92-6435-406c-b742-047019eff010" />
