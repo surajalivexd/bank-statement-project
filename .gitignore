@@ -1,1 +1,3 @@
-bank_statement.csv
+*.csv
+*.db
+__pycache__/
