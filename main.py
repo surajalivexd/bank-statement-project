@@ -79,7 +79,6 @@ order by abs(Amount) desc
 limit 5
 """
 df5=pd.read_sql_query(query5,conn)
-print(df5)
 df5['Amount'] = df5['Amount'].abs()
 df5['Date'] = pd.to_datetime(df5['Date']).dt.strftime('%d %b')
 conn.close()
